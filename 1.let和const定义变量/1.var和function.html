@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script>
+		// var function 存在变量提声
+		//var 只会提前声明 function即声明又定义
+		//全局作用域下 使用var 和 function 声明会给window增加属性
+		console.log(a); //undefined
+		console.log(gerA);
+		var a = 1;
+		function gerA(){  
+			
+		};
+		var a=2;
+		console.log(window.a);
+		console.log("getA" in window);
+	</script>
+</html>

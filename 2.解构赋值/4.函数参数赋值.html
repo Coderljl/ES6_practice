@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function gatA([a,b,...c]) {
+        console.log(a);
+        console.log(b);
+        console.log(c);
+    }
+    gatA([1,2,3,4,5]);
+
+    function gatB({name="ljl123",age=18}={}) {
+        console.log(name);
+        console.log(age);
+    }
+    // gatB({name:"ljl",age:10});
+    gatB();
+</script>
+</html>

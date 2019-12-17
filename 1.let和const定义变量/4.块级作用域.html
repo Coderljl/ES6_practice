@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul id="list">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+</ul>
+</body>
+<script>
+    //{} 一个{}就是一个块级作用域
+    //在块级作用域下 var 和function声明的变量依然是全局的
+    //在块级作用域下 let 和 const 声明的变量是私有的
+    //{}花括号表示对象不可以放在行首
+    {
+        let b = 1;
+        var a = 0;
+
+        function getA() {
+        }
+    }
+    // console.log(b)  b is not defined
+    //for(){},if(){},对象{}
+    // {name:"ljl",age:10} 看成块级作用域
+    // ({name:"ljl",age:10})
+    console.log(eval('({name:"ljl",age:10})'));
+    console.log(eval('var o ={name:"ljl",age:10}'));
+    console.log(o);
+    getA();
+
+    //if(){} 中的function只会提前声明不会定义，当条件成立先给函数赋值，代码在执行
+    if (1) {
+        console.log(getAA);
+        var A = 1;
+
+        function getAA() {
+
+        }
+    }
+    console.log(A);
+    console.log(getAA);
+
+    //for(){}
+    let list=document.getElementById("list").getElementsByTagName("li");
+    // for (var i = 0 ;i<list.length;i++) {
+    //     list[i].index= i
+    //     list[i].onclick=function () {
+    //         alert(this.index);
+    //     }
+    // }
+    // console.log(i);
+
+    for (let i = 0 ;i<list.length;i++) {
+        list[i].index= i
+        list[i].onclick=function () {
+            alert(this.index);
+        }
+    }
+    console.log(i);
+</script>
+</html>

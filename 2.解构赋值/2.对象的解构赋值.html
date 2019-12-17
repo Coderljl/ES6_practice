@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //{} 表示对象时候不能放在行首
+    //如果变量名和属性名一样可以直接省略写法
+    // let {name:name,age:age}={name:"ljl",age:18}
+    // let {name,age}={name:"ljl",age:18};
+    // console.log(name);
+
+    // let {name,age=100}={name:"ljl"};
+    // console.log(name,age);
+
+    //嵌套
+    let {name,age=100,list:[a1,a2,a3]}={name:"ljl",age:undefined,list:["js","node","vue"]};
+    console.log(a1,a2,a3);
+</script>
+</html>
