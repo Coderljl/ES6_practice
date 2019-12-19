@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>函数参数</title>
+</head>
+<body>
+
+</body>
+<script>
+    //参数默认值
+    function fn(x="ljl",y="ES6") {
+        console.log(x, y);
+    }
+    fn(0)
+    function fn1({name="ljl",age="100"}={}) {
+        console.log(name, age);
+    }
+    function fn1({name,age}={name:"ljl",age:"100"}) {
+        console.log(name, age);  //undefined undefined
+    }
+    fn1({});
+
+    //length 属性 当前形参个数，如果形参有默认值 length失真 变成没有默认值形参的个数
+    function fn2(x=10,y) {
+
+    }
+    fn2(1,2)
+    console.log(fn2.length);
+
+    //参数默认值位置 : 一般参数默认值放在最后
+    function fn3(x=10,y=20) {
+
+    }
+    // fn3(,1) 会报错
+    // arguments 类数组
+    function fn4(...arg) {
+        console.log(arguments);
+        console.log(arg);
+    }
+    fn4(1,2,3)
+</script>
+</html>

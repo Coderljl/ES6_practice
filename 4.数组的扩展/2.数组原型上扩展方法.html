@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //所有数组实例上的方法 参数是从索引n到索引m 都是包含n不包含m
+    console.log(Array.prototype);
+    //copyWithin 从原数组中读取内容 替换数组的指定位置的内容
+    //参数(替换目标起始位置target,查找的起始位置begin,查找的结束位置end默认到末尾位置)
+    let ary1 = [1, 2, 3, 4, 5, 6, 7, 8];
+    console.log(ary1.copyWithin(4, 2, 4));
+    console.log(ary1.copyWithin(3, 2));
+    console.log(ary1);
+    //fill 按照指定字符填充数组
+    // 将数组每一项变成指定字符
+    console.log(ary1.fill("ljl"));
+    ;
+    let ary2 = [1, 2, 3, 4, 5, 6, 7, 8];
+    //将数组索引3，4替换成ljl
+    console.log(ary2.fill("ljl", 3, 5));
+
+    //includes 判断数组中有没有某一项
+    // 第二个参数是开始查找位置的索引
+    console.log([1, 2, 3].includes(1, 2));
+
+    //遍历数组的方法 参数是一个函数，这个函数中的this是window我们可以通过第二个参数改变函数中的this
+    //reduce 和 reduceRight中的函数 不可以改this
+    //filetr 遍历数组根据返回值过滤原数组
+    //返回一个新的数组原数组不变
+    let ary3 = ["ljl", 1, 2, 3,];
+    let arr = ary3.filter(function (item, index) {
+        //如果返回true返回当前项 返回false不留下当前项
+        console.log(this)
+        return typeof item === "number";
+    },ary3)
+    console.log(arr);
+
+    //find 先遍历数组 一旦返回 true 停止查找 返回当前项
+    //find 只会查找一个
+    let a = ary3.find(function (item) {
+        return typeof item === "number";
+    })
+    console.log(a);
+
+    //findIndex 先遍历数组 一旦参数函数返回true 停止查找 返回当前项的索引
+    //只会查找一个
+    let i = ary3.findIndex(function (item) {
+        return typeof item === "string";
+    })
+    console.log(i);
+
+    //every 遍历当前数组 如果遍历每一项都返回true 最后结果为true 只要有一个false 结果就是false
+    console.log([1, 2, 3, 4, "ljl"].every(function (item) {
+        return typeof item === "number";
+    }));
+
+    //some 遍历数组 只要有一项是true 最后结果就是true
+    console.log([1, 2, 3, 4, "ljl"].some(function (item) {
+        return typeof item === "number";
+    }));
+
+    //reduce 迭代 第二个参数作为初始prev
+    let ary4 = [1, 2, 3, 4,5]
+    console.log(ary4.reduce(function (prev, item) {
+        //prev 上一次返回值
+        //item 当前项
+        return prev + item;
+    },10));
+
+    //reduceRight 跟reduce一样 只是顺序从右开始
+
+    //keys 用来遍历每一项索引接口 使用 for of 遍历
+    let ary5=["a","b","c","d"];
+    console.log(ary5.keys());
+    for(let key of ary5.keys()){
+        //key 索引
+        console.log(key);
+    }
+    //默认使用for of 遍历数组 默认遍历的是每一项
+    for(let item of ary5){
+        console.log(item);
+    }
+
+    //entryies 遍历接口 可以遍历到索引和每一项 每一次遍历得到一个数组[索引，当前项]
+    //一般可以通过解构赋值获取到辩能力结果
+    for (let [index,item] of ary5.entries()){
+        console.log(item,index)
+    }
+</script>
+</html>

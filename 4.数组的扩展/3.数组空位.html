@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数组空位</title>
+</head>
+<body>
+
+</body>
+<script>
+    //数组的空位 数组某个索引位置没有任何值 undefind 不是空位
+    //判断一个数组某一位是是不是空位 in
+    //in:判断数组索引位置上有没有值
+    let arr = [,undefined,,,,];    //5个空位的数组
+    console.log(arr.length);
+    console.log(1 in arr);
+    console.log(0 in arr);
+
+    //在ES5中数组方法对空位的处理不一致 一般直接跳过空位
+    //在 ES6中的方法将空位处理为undefined
+    let arr1 = [1,2,,,,,3];
+    arr1.filter(function (item) {
+        console.log(item);
+    })
+
+    arr1.find(function (item) {
+        console.log(item);
+    })
+    for (let item of arr1){
+        console.log(item);
+    }
+    console.log("******索引****")
+    for (let key in arr1){
+        console.log(key);
+    }
+    //面试题 得到一个有7个1的数组
+    console.log(Array(7).fill(1));
+</script>
+</html>
